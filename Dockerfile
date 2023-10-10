@@ -15,6 +15,7 @@ ARG PLATFORM
 ARG TARGETPLATFORM
 
 COPY files/ /expressvpn/
+RUN chmod a+x /expressvpn/*.sh
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     expect curl ca-certificates iproute2 wget jq iptables iputils-ping
