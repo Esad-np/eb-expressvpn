@@ -34,7 +34,7 @@ RUN wget -q https://www.expressvpn.works/clients/linux/expressvpn_${NUM}-1_${PLA
 RUN apt-get purge --autoremove -y wget \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/log/*.log
-
+RUN chmod a+x /expressvpn/*.sh
 HEALTHCHECK --start-period=30s --timeout=5s --interval=2m --retries=3 CMD bash /expressvpn/healthcheck.sh
 
 ENTRYPOINT ["/bin/bash", "/expressvpn/start.sh"]
